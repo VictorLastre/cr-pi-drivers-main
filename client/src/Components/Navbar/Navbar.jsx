@@ -1,16 +1,28 @@
-import {Link} from 'react-router-dom'
-import './Navbar.css'
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
-    return (
-        <div className='container'>
-            <div className='button_container'>
-                <Link to={"/home"}>
-                    <button className='navbar_button'>Home</button>
-                </Link>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="nav-container">
+      <div className="title-container">
+        <h1>Drivers F1</h1>
+      </div>
 
-export default Navbar
+      <div className="button-container">
+        <Link to={"/home"}>
+          <button className="nav-button">Home</button>
+        </Link>
+
+        <Link to={"/form"}>
+          <button className="nav-button">Create</button>
+        </Link>
+
+        <Link to={"/"}>
+          <button className="nav-button">Exit</button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
