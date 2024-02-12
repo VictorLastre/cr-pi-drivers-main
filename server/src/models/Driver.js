@@ -1,62 +1,44 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('Driver', {
+  
+  sequelize.define('Driver',  {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
-      allowNull: false,
     },
     name: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notNull: true,
-        len: [4, 15],
-        notEmpty: {
-          msg: "name required",
-        },
-      },
     },
     lastname: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notNull: true,
-        len: [4, 15],
-        notEmpty: {
-          msg: "lastname required",
-        },
-      },
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: "https://as2.ftcdn.net/v2/jpg/00/64/67/27/1000_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg",
-      validate: {
-        isUrl: true,
-      },
+      allowNull: false,
     },
     nationality: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        notEmpty: {
-          msg: "nationality is required",
-        },
-      },
     },
     birthdate: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.DATEONLY,
       allowNull: false,
-      validate: {
-        notNull: true,
-        notEmpty: {
-          msg: "birthdate required",
-        },
-      },
+    },
+
+    createDb: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
     },
   },
-  { freezeTableName: true, timestamps: false }
-  );
+  { timestamps: false, freezeTableName: true }
+);
 };

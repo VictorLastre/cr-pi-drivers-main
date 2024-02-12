@@ -1,22 +1,20 @@
-const {DataTypes} = require("sequelize");
+const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define("Team", {
-        id: {
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
-            primaryKey: true,
-        },
-        name: {
-            type: DataTypes.STRING(20),
-            allowNull: false,
-            validate: {
-                notEmpty: {
-                    msg: "name required",
-                },
-            },
-        },
+  
+  sequelize.define(
+    "Team",
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
-    { freezeTableName: true, timestamps: false }
-    );
+    { timestamps: false, freezeTableName: true }
+  );
 };
