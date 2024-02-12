@@ -1,0 +1,10 @@
+.order-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .order-ascDesc,
+  .order-dob {
+    margin-right: 10px;
+  }

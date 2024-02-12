@@ -7,7 +7,7 @@ import {
     ORDER_ASC_DESC,
     ORDER_BY_DOB,
     SEARCH_DRIVER,
-  } from "../ActionsTypes/ActionsTypes";
+  } from "../ActionsTypes/ActionTypes.jsx";
   
   const removeAccents = (str) => {
     return str

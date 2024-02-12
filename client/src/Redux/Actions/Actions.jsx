@@ -9,7 +9,7 @@ import {
   ORDER_ASC_DESC,
   ORDER_BY_DOB,
   SEARCH_DRIVER,
-} from "../ActionsTypes/ActionsTypes";
+} from "../ActionsTypes/ActionTypes";
 
 export const getDrivers = () => {
   return async function (dispatch) {
