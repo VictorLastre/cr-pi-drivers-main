@@ -1,45 +1,57 @@
 .pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 4px;
-    position: fixed;
-    bottom: 0;
-  }
-  
-  .pagination-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  position: fixed;
+  bottom: 0;
+  width: 100%; /* Ajustar el ancho al 100% para dispositivos pequeños */
+}
+
+.pagination-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 80%; /* Limitar el ancho máximo para que no se extienda demasiado en pantallas grandes */
+}
+
+.pagination-buttons button {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10%;
+  cursor: pointer;
+  color: rgb(0, 7, 7);
+  background-color: rgb(161, 255, 182);
+  border: 1px solid rgb(85, 196, 202);
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.pagination-buttons button:hover {
+  background-color: rgba(8, 73, 35, 0.308);
+  color: whitesmoke;
+  border-color: grey;
+  font-weight: bold;
+}
+
+.pagination-buttons button:active {
+  transform: scale(0.9);
+}
+
+.pagination-buttons button.active {
+  background-color: rgba(255, 0, 0, 0.308);
+  color: whitesmoke;
+  border-color: grey;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.direction-buttons {
+  text-align: center;
+}
+
+@media (max-width: 576px) {
   .pagination-buttons button {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 10%;
-    cursor: pointer;
-    color: rgb(0, 7, 7);
-    background-color: red;
-    border: 1px solid rgb(85, 196, 202);
-    width: 50px;
-    text-align: center;
+    width: 40px; /* Reducir el ancho de los botones en dispositivos pequeños */
   }
-  
-  .pagination-buttons button:hover {
-    background-color: rgba(255, 0, 0, 0.308);
-    color: whitesmoke;
-    border-color: grey;
-  }
-  
-  .pagination-buttons button:active {
-    transform: scale(0.9);
-  }
-  
-  .pagination-buttons button.active {
-    background-color: rgba(255, 0, 0, 0.308);
-    color: whitesmoke;
-    border-color: grey;
-  }
-  
-  .direction-buttons {
-    text-align: center;
-  }
+}

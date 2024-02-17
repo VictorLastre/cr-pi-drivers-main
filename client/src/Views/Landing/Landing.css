@@ -27,8 +27,8 @@
 .gif-container {
   margin-top: 20px;
   display: flex;
-  justify-content: center; /* Centra horizontalmente en todos los dispositivos */
-  align-items: center; /* Centra verticalmente en todos los dispositivos */
+  justify-content: center;
+  align-items: center;
 }
 
 .f1-gif {
@@ -54,6 +54,12 @@
 
 /* Media query para dispositivos móviles */
 @media (max-width: 576px) {
+  .landing-h1 {
+    font-size: 3.5rem; /* Reduce el tamaño del título en dispositivos móviles */
+    margin-top: 10%; /* Ajusta el margen superior del título en dispositivos móviles */
+    margin-bottom: 4%; /* Ajusta el margen inferior del título en dispositivos móviles */
+  }
+
   .f1-gif {
     width: 150px; /* Reduce el tamaño del GIF en dispositivos móviles */
   }
