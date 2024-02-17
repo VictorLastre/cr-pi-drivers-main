@@ -22,11 +22,14 @@ const Detail = () => {
       <h2>{driverDetail.name} {driverDetail.lastname}</h2>
       <h4>Nationality: {driverDetail.nationality}</h4>      
       <p>Birthdate: {driverDetail.birthdate}</p>
+      <h4>Teams: </h4>      
       <p>
         {Array.isArray(driverDetail.Teams)
           ? driverDetail.Teams.map((team) => team.name).join(", ")
           : driverDetail.teams}
-      </p>      
+      </p> 
+      <h4>Description:</h4>
+      <p>{driverDetail.description}</p>       
     </div>
   );
 };

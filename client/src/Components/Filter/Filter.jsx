@@ -11,13 +11,16 @@ import {
 const Filter = () => {
   const dispatch = useDispatch();
   const [selectedTeam, setSelectedTeam] = useState("");
+  const [selectedSource, setSelectedSource] = useState("all");
   const teams = useSelector((state) => state.teams);
 
   useEffect(() => {
     dispatch(allTeams());
   }, [dispatch]);
 
-  const handleFilter = (e) => {
+  const sortedTeams = teams?.slice().sort((a, b) => a.name.localeCompare(b.name)); // Ordena alfabéticamente los equipos
+
+  const handleTeamChange = (e) => {
     const selectedValue = e.target.value;
     setSelectedTeam(selectedValue);
     if (selectedValue === "all") {
@@ -27,24 +30,18 @@ const Filter = () => {
     }
   };
 
-  const handleSourceFilter = (e) => {       //cam. fuen de datos
+  const handleSourceChange = (e) => {       //cambio de fuente de datos
     const selectedValue = e.target.value;
-    setSelectedTeam(selectedValue);
-    if (selectedValue === "all") {
-      dispatch(filterApiDb("all"));
-    } else if (selectedValue === "api") {
-      dispatch(filterApiDb("api"));
-    } else if (selectedValue === "database") {
-      dispatch(filterApiDb("database"));
-    }
+    setSelectedSource(selectedValue);
+    dispatch(filterApiDb(selectedValue));
   };
 
   return (
     <div className="filter-container">
       <div>
-        <select onChange={(e) => handleFilter(e)} value={selectedTeam}>
-          <option value="all">Filter by Team...</option>
-          {teams?.map((team) => (
+        <select onChange={(e) => handleTeamChange(e)} value={selectedTeam}>
+          <option value="all">Teams</option>
+          {sortedTeams?.map((team) => ( 
             <option key={team.id} value={team.name}>
               {team.name}
             </option>
@@ -52,35 +49,12 @@ const Filter = () => {
         </select>
       </div>
 
-      <div className="filter-imput">
-        <span>Filter by Source: </span>
-        <label>
-          <input
-            type="radio"
-            value="all"
-            checked={selectedTeam === "all"}
-            onChange={handleSourceFilter}
-          />
-          All
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="database"
-            checked={selectedTeam === "database"}
-            onChange={handleSourceFilter}
-          />
-          Database
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="api"
-            checked={selectedTeam === "api"}
-            onChange={handleSourceFilter}
-          />
-          Api
-        </label>
+      <div className="filter-input">        
+        <select value={selectedSource} onChange={(e) => handleSourceChange(e)}>
+          <option value="all">All</option>
+          <option value="database">Database</option>
+          <option value="api">Api</option>
+        </select>
       </div>
     </div>
   );

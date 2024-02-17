@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
-
 import "./Cards.css";
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import { useState } from "react";
+
 
 const Cards = () => {
   const drivers = useSelector((state) => state.drivers);

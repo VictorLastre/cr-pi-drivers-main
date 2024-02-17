@@ -1,8 +1,8 @@
 /* OrderDrivers.css */
 
 .order-container {
-  display: flex;
-  align-items: center;
+  width: 50%;
+  display: flex;  
   justify-content: space-between;
   flex-wrap: wrap; /* Para que los elementos se envuelvan en pantallas pequeñas */
 }
@@ -20,27 +20,6 @@
   border-radius: 5px;
   font-size: 16px;
   background-color: #fff;
-}
-
-.filter-container {
-  flex: 1; /* Los componentes de Filter ocuparán el 50% del contenedor en pantallas grandes */
-  text-align: right; /* Alineación a la derecha */
-}
-
-.filter-container select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #fff;
-}
-
-.filter-imput {
-  margin-top: 10px;
-}
-
-.filter-imput label {
-  margin-right: 10px;
 }
 
 @media (max-width: 768px) {

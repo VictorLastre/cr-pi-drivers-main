@@ -4,7 +4,7 @@ body {
   font-family: roboto;
 }
 .container {  
-  width: 400px;
+  width: 750px;
   margin: 120px auto 120px;
   background-color: #fff;
   padding: 0 10px 10px;
@@ -62,18 +62,18 @@ body {
 h2 {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   color: #333;
 }
 h4 {
   font-size: 15px;
   color: #00baff;
   letter-spacing: 1px;
-  margin-bottom: 25px
+  margin-bottom: 5px
 }
 p {
   font-size: 20px;
   line-height: 26px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: #666;
 }

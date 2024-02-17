@@ -1,48 +1,30 @@
+/* Filter.css */
+
 .filter-container {
-  width: 50%; /* Ocupa el 50% de la pantalla */
-  max-width: 500px; /* Ancho máximo */
-  display: flex;
-  justify-content: flex-start; /* Alineado a la izquierda */
-  align-items: center; /* Centrado verticalmente */
+  width: 50%;
+  flex: 1;  
+  text-align: right;
 }
 
-.filter-container select,
-.filter-container input[type="radio"] {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  padding: 10px; /* Espacio interno */
-  margin-right: 10px; /* Espacio a la derecha */
-  border-radius: 5px; /* Bordes redondeados */
-  border: 1px solid #ccc; /* Borde gris */
-  background-color: #fff; /* Fondo blanco */
-  font-size: 16px; /* Tamaño de fuente */
-  appearance: none; /* Elimina el estilo predeterminado */
-  outline: none; /* Elimina el borde de enfoque */
-  cursor: pointer; /* Cursor de puntero */
-}
-
-.filter-container select:hover,
-.filter-container input[type="radio"]:hover {
-  border-color: #aaa; /* Color del borde al pasar el ratón */
-}
-
-.filter-container select:focus,
-.filter-container input[type="radio"]:focus {
-  border-color: #007bff; /* Color del borde al estar enfocado */
+.filter-container select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
 }
 
 .filter-imput {
-  display: flex;
-  align-items: center;
+  margin-top: 10px;
 }
 
-.filter-imput span {
-  margin-right: 10px; /* Espacio a la derecha */
+.filter-imput label {
+  margin-right: 10px;
 }
 
-/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
   .filter-container {
-    width: 100%; /* Ocupa todo el ancho en dispositivos móviles */
-    justify-content: center; /* Alineado al centro en dispositivos móviles */
+    flex: 100%;
   }
 }

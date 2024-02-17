@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Home.css";
 import { getDrivers } from "../../Redux/Actions/Actions";
 import OrderDrivers from "../../Components/Order/OrderDrivers";
-
+import FilterDrivers from "../../Components/Filter/Filter"
 import { useEffect, useState } from "react";
 import Pagination from "../../Components/Pagination/Pagination";
 import Card from "../../Components/Card/Card";
@@ -27,7 +27,9 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="filter-container">
-        <OrderDrivers className="order-drivers" />                
+        <OrderDrivers className="order-drivers" />  
+        <FilterDrivers className="filter-container"/>  
+                    
       </div>
       <div className={`${"pagination-containerCards"} ${"card-Container"}`}>
         {currentDrivers?.map((driver) => {

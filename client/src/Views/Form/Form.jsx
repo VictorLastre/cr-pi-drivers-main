@@ -140,11 +140,10 @@ const Form = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form-card">
-        <Link to="/home">
-          <button className="back-home">Home</button>
+        <Link to="/home">          
         </Link>
         <section>
-          <h1 className="h1-form">Create a driver</h1>
+          <h1 className="h1-form">Create new driver</h1>
           <input
             className={`input-container ${errors.name ? "error" : ""}`}
             type="text"
@@ -231,9 +230,9 @@ const Form = () => {
                   {team.name}
                 </option>
               ))}
-            </select>
+            </select>           
             {errors.teams && <p className="error-text">{errors.teams}</p>}
-          </div>
+          </div>          
           <div className="selected">
             {form.teams?.map((team) => (
               <span className="team-span" key={team}>
@@ -241,8 +240,7 @@ const Form = () => {
                 <button
                   className="delete-btn"
                   onClick={() => handleDelete(team)}
-                >
-                  x
+                >x
                 </button>
               </span>
             ))}
