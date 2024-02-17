@@ -1,36 +1,98 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../../assets/images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .home-container {
-    background-image: url("https://wallpapercave.com/wp/wp12004151.png");
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  min-height: 100vh; /* Establece una altura mínima del 100% de la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.filter-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pagination-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pagination-containerCards {
+  min-height: calc(100vh - 250px); /* Ajusta el mínimo de altura para ocupar el espacio restante */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-info {
+  padding: 10px;
+}
+
+.card-info span {
+  font-weight: bold;
+}
+
+.card-info div {
+  margin-top: 10px;
+}
+
+.pagination-container button {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-container button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px);
   }
-  
-  .filter-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    width: 90%;
-    margin: 1px 0px -1px 100px;
-    padding: 5px;
+}
+
+@media (max-width: 576px) {
+  .card {
+    width: calc(100% - 20px);
   }
-  
-  .pagination-containerCards {
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    border-radius: 15px;
-    flex-wrap: wrap;
-    gap: 2em;
-    backdrop-filter: blur(0);
-    background-color: rgba(255, 232, 214, 0.5);
-    width: 90%;
-    margin: 3px auto 0;
-    padding: 25px;
-  }
+}

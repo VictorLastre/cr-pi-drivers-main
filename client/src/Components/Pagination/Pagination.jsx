@@ -3,9 +3,19 @@ import "./Pagination.css";
 
 const Pagination = ({ currentPage, driversPerPage, drivers, paginate }) => {
   const totalPages = Math.ceil(drivers.length / driversPerPage);
+  const maxPagesToShow = 10; // Define el número máximo de páginas a mostrar
+
+  // Calcula el rango de páginas a mostrar
+  let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+  let endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+
+  // Ajusta el startPage si el endPage es igual al totalPages
+  if (endPage === totalPages) {
+    startPage = Math.max(1, endPage - maxPagesToShow + 1);
+  }
 
   const pages = [];
-  for (let i = 1; i <= totalPages; i++) {
+  for (let i = startPage; i <= endPage; i++) {
     pages.push(i);
   }
 

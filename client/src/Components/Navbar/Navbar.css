@@ -1,38 +1,67 @@
-.nav-container {
-  background-color: rgb(2, 49, 2);
-  height: 10vh;
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
+
+.nav-container {  
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;  
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23222222' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23444444' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23666666' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23888888' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23aaaaaa' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23cccccc' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEE' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .title-container {
-  margin-left: 20px;
-  font-size: 2rem;
-  color: rgb(85, 196, 202);;
+  flex: 1;
+  font-family: "Honk", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+.title-container h1 {
+  margin: 0;
+}
+
+.search-container {
+  flex: 2; /* O ajusta el tamaño según necesites */
+  margin: 0 20px; /* Espacio entre el título y la barra de búsqueda */
 }
 
 .button-container {
-  margin-right: 20px;
-  padding: auto;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Alinear los botones al final */
 }
 
 .nav-button {
-  padding: 10px 15px;
-  margin: 2px;
-  font-size: 1rem;
-  background-color: transparent;
-  border: 2px solid;
-  border-radius: 15px;
-  color: rgb(85, 196, 202);;
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  width: 100px;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
-.nav-button:hover {
-  background-color: rgb(85, 196, 202);;
-  color: rgb(85, 196, 202);;
-  border-color: rgb(85, 196, 202);;
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .search-container {
+    margin: 10px 0;
+  }
+
+  .button-container {
+    justify-content: center; /* Alinear los botones al centro en dispositivos móviles */
+  }
+
+  .nav-button {
+    margin: 5px;
+  }
 }

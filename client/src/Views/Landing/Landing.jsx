@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Landing.css";
+import f1 from "../../assets/koopatroopa.gif";
 
 const Landing = () => {
   return (
@@ -9,13 +10,13 @@ const Landing = () => {
       </div>
       <div>
         <Link to={"/home"}>
-          <button className="landing-button" type="submit">
-          READY GO...
-          </button>
+        <div className="gif-container">
+        <img src={f1} alt="F1" className="f1-gif" />
+      </div>
         </Link>
       </div>
+      
     </div>
   );
 };
-
 export default Landing;

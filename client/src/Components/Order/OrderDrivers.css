@@ -1,10 +1,62 @@
+/* OrderDrivers.css */
+
 .order-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Para que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.order-ascDesc,
+.order-dob {
+  flex: 1; /* Los componentes de Order ocuparán el 50% del contenedor en pantallas grandes */
+}
+
+.order-ascDesc select,
+.order-dob select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.filter-container {
+  flex: 1; /* Los componentes de Filter ocuparán el 50% del contenedor en pantallas grandes */
+  text-align: right; /* Alineación a la derecha */
+}
+
+.filter-container select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.filter-imput {
+  margin-top: 10px;
+}
+
+.filter-imput label {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .order-ascDesc,
+  .order-dob,
+  .filter-container {
+    flex: 100%; /* Los componentes ocuparán el 100% del contenedor en pantallas pequeñas */
   }
-  
+
+  .order-container {
+    flex-direction: column; /* Cambiar a dirección de columna en pantallas pequeñas */
+    align-items: stretch; /* Alinear los elementos de la columna estirados */
+  }
+
   .order-ascDesc,
   .order-dob {
-    margin-right: 10px;
+    margin-bottom: 10px; /* Espacio entre los componentes de Order en pantallas pequeñas */
   }
+}

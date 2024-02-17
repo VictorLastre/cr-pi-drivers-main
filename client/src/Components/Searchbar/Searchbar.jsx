@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import "./Searchbar.css";
 import { searchDriver } from "../../Redux/Actions/Actions";
 
+
 const Searchbar = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -15,14 +16,15 @@ const Searchbar = () => {
 
   return (
     <div className="search-container">
-      <form action="">
+      <form action="">        
         <input
-          className="search-container"
+          className="search-input"
           onChange={handleChange}
           placeholder="Search Driver..."
           type="search"
           value={name}
         />
+        
       </form>
     </div>
   );

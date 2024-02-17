@@ -1,6 +1,25 @@
 .search-container {
-    border-radius: 20px;
-    align-items: center;
-    margin-left: 100px;
-    margin-right: 20px;
+  width: 100%;
+}
+
+.search-container input[type="search"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.search-container input[type="search"]:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .search-container input[type="search"] {
+    font-size: 0.9rem;
   }
+}

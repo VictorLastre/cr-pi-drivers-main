@@ -1,115 +1,107 @@
 .form-container {
-    background-image: url("https://wallpapercave.com/wp/wp9526628.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 90vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  background-image: url("../../assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Usamos min-height para asegurar que el fondo cubra toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-card {
+  background-color: rgba(19, 62, 38, 0.8);
+  border-radius: 20px;
+  padding: 30px;
+  box-sizing: border-box;
+  max-width: 400px;
+  width: 100%;
+}
+
+.h1-form {
+  color: #f8f0f0;
+  font-family: sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #fff;
+}
+
+.teams-container-create {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.team-span {
+  background-color: #30313a;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #f4f2de;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  border: none;
+  border-radius: 50%;
+  color: #eee;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit:hover {
+  background-color: #0056b3;
+}
+
+.error-text {
+  animation: blink 1s infinite;
+  color: hsl(9, 92%, 50%);
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
   }
-  
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
   .form-card {
-    background-color: rgba(19, 62, 38, 0.8);
-    border-radius: 20px;
-    box-sizing: border-box;
-    height: 500px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: -100px;
-    margin-left: 60%;
+    padding: 20px;
   }
-  
-  .h1-form {
-    color: rgb(248, 240, 240);
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-  
-  .input-container {
-    margin-top: 5px;
-    padding: 10px;
-    height: 10px;
-    position: relative;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-  }
-  
-  .teams-container-create {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .h3-form {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: -5px;
-    color: #ffffff;
-  }
-  
-  .selected {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .team-span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #30313a;
-    border-radius: 20px;
-    padding: 5px;
-    margin-right: 4px;
-    color: #f4f2de;
-    width: 100px;
-    height: 20px;
-  }
-  
-  .delete-btn {
-    background-color: #dc3545;
-    border: none;
-    border-radius: 50%;
-    color: #eee;
-    cursor: pointer;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 8px;
-    width: 10px;
-    height: 10px;
-  }
-  
-  .submit {
-    margin-top: 20px;
-  }
-  .submit:active {
-    background-color: #f4f2de;
-    color: #e9b384;
-  }
-  
-  .error-text {
-    animation: blink 1s infinite;
-    color: hsl(9, 92%, 50%);
-  }
-  @keyframes blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
+}
