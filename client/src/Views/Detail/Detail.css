@@ -11,7 +11,7 @@ body {
   margin: 120px auto; /* Centrado vertical */
   background-color: #fff;
   padding: 0 10px 10px;
-  border-radius: 6px;
+  border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.075);
   text-align: center;
 }

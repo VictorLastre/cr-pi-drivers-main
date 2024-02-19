@@ -63,6 +63,20 @@ select {
   border: solid #fd422e 2px;
 }
 
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  60% { transform: translateX(-10px); }
+  80% { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+.error {
+  border: solid #fd422e 2px;
+  animation: shake 0.5s ease;
+}
+
 .teams-container-create {
   display: flex;
   align-items: center;
@@ -74,7 +88,7 @@ select {
   background: #e8eeef;
   color: #000000;
   font-weight: bold;
-  padding: 5px;
+  padding: 12px;
   margin: 5px;
   border-radius: 15px;
 }
