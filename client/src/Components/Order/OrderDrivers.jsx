@@ -42,8 +42,8 @@ const OrderDrivers = () => {
       <div className="order-ascDesc">
         <select onChange={(e) => handleOrder(e)}>
           <option value="default">Order alphabetically</option>
-          <option value="asc">Ascendent</option>
-          <option value="desc">Descendent</option>
+          <option value="asc">A-Z</option>
+          <option value="desc">Z-A</option>
         </select>
       </div>
       <div className="order-dob">
