@@ -16,8 +16,8 @@ const validate = (form) => {
 
   if (!form.lastname) {
     errors.lastname = "Please insert a valid lastname!";
-  } else if (!/^[A-Za-z\s]+$/.test(form.name)) {
-    errors.name = "Name can only contain letters and spaces!";
+  } else if (!/^[A-Za-z\s]+$/.test(form.lastname)) {
+    errors.lastname = "Lastname can only contain letters and spaces!";
   }
 
   if (!form.nationality) {
@@ -54,6 +54,8 @@ const Form = () => {
     teams: [],
   });
 
+  const drivers = useSelector((state) => state.drivers);
+
   const [errors, setErrors] = useState({
     name: false,
     lastname: false,
@@ -64,36 +66,47 @@ const Form = () => {
     teams: false,
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formErrors = validate(form);
     if (Object.keys(formErrors).length === 0) {
-      axios
-        .post("http://localhost:3001/drivers", form)
-        .then(() => {
-          alert("Driver created successfully");
-          setForm({
-            name: "",
-            lastname: "",
-            nationality: "",
-            image: "",
-            birthdate: "",
-            description: "",
-            teams: [],
-          });
-          setErrors({
-            name: false,
-            lastname: false,
-            nationality: false,
-            image: false,
-            birthdate: false,
-            description: false,
-            teams: false,
-          });
-        })
-        .catch(() => {
-          alert("Error creating driver");
+      // Check if driver with same name, lastname, and birthdate already exists
+      const existingDriver = drivers.find(
+        (driver) =>
+          driver.name === form.name &&
+          driver.lastname === form.lastname &&
+          driver.birthdate === form.birthdate
+      );
+
+      if (existingDriver) {
+        alert("Driver with same name, lastname, and birthdate already exists");
+        return;
+      }
+
+      try {
+        await axios.post("http://localhost:3001/drivers", form);
+        alert("Driver created successfully");
+        setForm({
+          name: "",
+          lastname: "",
+          nationality: "",
+          image: "",
+          birthdate: "",
+          description: "",
+          teams: [],
         });
+        setErrors({
+          name: false,
+          lastname: false,
+          nationality: false,
+          image: false,
+          birthdate: false,
+          description: false,
+          teams: false,
+        });
+      } catch (error) {
+        alert("Error creating driver");
+      }
     } else {
       setErrors(formErrors);
     }
@@ -108,6 +121,16 @@ const Form = () => {
       ...errors,
       [e.target.name]: false,
     });
+  };
+
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    if (!value.trim()) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: `Please insert a valid ${name}!`,
+      }));
+    }
   };
 
   const dispatch = useDispatch();
@@ -140,8 +163,7 @@ const Form = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="form-card">
-        <Link to="/home">          
-        </Link>
+        <Link to="/home"></Link>
         <section>
           <h1 className="h1-form">Create new driver</h1>
           <input
@@ -150,6 +172,7 @@ const Form = () => {
             name="name"
             value={form.name}
             onChange={handleInputChange}
+            onBlur={handleBlur}
             placeholder="Name here..."
           />
           {errors.name && <p className="error-text">{errors.name}</p>}
@@ -161,6 +184,7 @@ const Form = () => {
             name="lastname"
             value={form.lastname}
             onChange={handleInputChange}
+            onBlur={handleBlur}
             placeholder="Lastname here..."
           />
           {errors.lastname && <p className="error-text">{errors.lastname}</p>}
@@ -172,6 +196,7 @@ const Form = () => {
             name="nationality"
             value={form.nationality}
             onChange={handleInputChange}
+            onBlur={handleBlur}
             placeholder="Nationality here..."
           />
           {errors.nationality && (
@@ -186,6 +211,7 @@ const Form = () => {
             name="image"
             value={form.image}
             onChange={handleInputChange}
+            onBlur={handleBlur}
             placeholder="Image here..."
           />
           {errors.image && <p className="error-text">{errors.image}</p>}
@@ -198,6 +224,7 @@ const Form = () => {
             name="birthdate"
             value={form.birthdate}
             onChange={handleInputChange}
+            onBlur={handleBlur}
             placeholder="Birthdate here..."
           />
           {errors.birthdate && <p className="error-text">{errors.birthdate}</p>}
@@ -210,6 +237,7 @@ const Form = () => {
             name="description"
             value={form.description}
             onChange={handleInputChange}
+            onBlur={handleBlur}
             placeholder="Description here..."
           />
           {errors.description && (
@@ -225,14 +253,16 @@ const Form = () => {
               name="teams"
               onChange={handleSelect}
             >
-              {teams.map((team) => (
+              {teams.sort((a, b) => {
+                return a.name.localeCompare(b.name);
+              }).map((team) => (
                 <option key={team.id} value={team.name}>
                   {team.name}
                 </option>
               ))}
-            </select>           
+            </select>
             {errors.teams && <p className="error-text">{errors.teams}</p>}
-          </div>          
+          </div>
           <div className="selected">
             {form.teams?.map((team) => (
               <span className="team-span" key={team}>
@@ -240,7 +270,8 @@ const Form = () => {
                 <button
                   className="delete-btn"
                   onClick={() => handleDelete(team)}
-                >x
+                >
+                  x
                 </button>
               </span>
             ))}

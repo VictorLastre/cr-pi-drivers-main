@@ -2,22 +2,17 @@ import PropTypes from "prop-types";
 import "./Pagination.css";
 
 const Pagination = ({ currentPage, driversPerPage, drivers, paginate }) => {
-  const totalPages = Math.ceil(drivers.length / driversPerPage);
+  const totalPages = Math.max(1, Math.ceil(drivers.length / driversPerPage));
   const maxPagesToShow = 10; // Define el número máximo de páginas a mostrar
 
-  // Calcula el rango de páginas a mostrar
   let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
-  let endPage = Math.min(startPage + maxPagesToShow - 1, totalPages);
+  let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
 
-  // Ajusta el startPage si el endPage es igual al totalPages
-  if (endPage === totalPages) {
+  if (endPage - startPage < maxPagesToShow - 1) {
     startPage = Math.max(1, endPage - maxPagesToShow + 1);
   }
 
-  const pages = [];
-  for (let i = startPage; i <= endPage; i++) {
-    pages.push(i);
-  }
+  const pages = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
 
   return (
     <nav className="pagination-container">
